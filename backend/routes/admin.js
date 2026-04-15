@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const { protect, adminOnly } = require('../middleware/auth');
-const User = require('../models/User');
-const Order = require('../models/Order');
-const Product = require('../models/Product');
-const Coupon = require('../models/Coupon');
-const Review = require('../models/Review');
+const User = require('../model/User');
+const Order = require('../model/Order');
+const Product = require('../model/Product');
+const Coupon = require('../model/Coupon');
+const Review = require('../model/Review');
 
 // All admin routes are protected
 router.use(protect, adminOnly);

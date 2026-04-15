@@ -334,3 +334,6 @@
 {"level":"info","message":"Server running on port 5000","timestamp":"2026-04-15T04:54:26.597Z"}
 {"level":"info","message":"POST /api/auth/register - IP: ::ffff:127.0.0.1","timestamp":"2026-04-15T04:54:54.952Z"}
 {"level":"info","message":"POST /api/auth/register - IP: ::ffff:127.0.0.1","timestamp":"2026-04-15T04:56:43.845Z"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-04-15T05:00:08.003Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2026-04-15T05:00:08.088Z"}
+{"level":"info","message":"POST /api/auth/register - IP: ::ffff:127.0.0.1","timestamp":"2026-04-15T05:00:59.962Z"}
