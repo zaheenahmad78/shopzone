@@ -1,6 +1,6 @@
 const paymentService = require('../services/paymentService');
 const logger = require('../config/logger');
-const Order = require('../model/Order');
+const Order = require('../model/order');
 
 // Create payment order
 const createOrder = async (req, res) => {
