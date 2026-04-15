@@ -3,7 +3,7 @@ const router = express.Router();
 const { protect, adminOnly } = require('../middleware/auth');
 const User = require('../model/User');
 const Order = require('../model/order');
-const Product = require('../model/Product');
+const Product = require('../model/product');
 const Coupon = require('../model/Coupon');
 const Review = require('../model/Review');
 
