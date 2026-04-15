@@ -1,0 +1,108 @@
+### Health Check
+GET http://localhost:5000/health
+
+### Home Route
+GET http://localhost:5000/
+
+### Register User (Real Gmail - Email Test)
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Zaheen Ahmad",
+  "email": "finaltest@ethereal.com",
+  "password": "123456"
+}
+
+### Register User (Fake Email - for testing without email)
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "test@shopzone.com",
+  "password": "123456"
+}
+
+### Login User
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@shopzone.com",
+  "password": "123456"
+}
+
+### Create Payment Order
+POST http://localhost:5000/api/payments/create-order
+Content-Type: application/json
+
+{
+  "amount": 500
+}
+
+### Verify Payment (after getting order details)
+POST http://localhost:5000/api/payments/verify
+Content-Type: application/json
+
+{
+  "orderId": "order_xxxx",
+  "paymentId": "pay_xxxx",
+  "signature": "xxxx"
+}
+
+### Get Product Reviews
+GET http://localhost:5000/api/reviews/product/PRODUCT_ID
+
+### Add Product Review (Need Token)
+POST http://localhost:5000/api/reviews
+Content-Type: application/json
+Authorization: Bearer YOUR_JWT_TOKEN_HERE
+
+{
+  "productId": "PRODUCT_ID",
+  "rating": 5,
+  "comment": "Excellent product! Highly recommended."
+}
+
+### Get Wishlist
+GET http://localhost:5000/api/wishlist
+Authorization: Bearer YOUR_JWT_TOKEN_HERE
+
+### Add to Wishlist
+POST http://localhost:5000/api/wishlist/add
+Content-Type: application/json
+Authorization: Bearer YOUR_JWT_TOKEN_HERE
+
+{
+  "productId": "PRODUCT_ID"
+}
+
+### Validate Coupon
+POST http://localhost:5000/api/coupons/validate
+Content-Type: application/json
+
+{
+  "code": "WELCOME10",
+  "cartTotal": 2999
+}
+
+### Admin Dashboard Stats (Need Admin Token)
+GET http://localhost:5000/api/admin/stats
+Authorization: Bearer YOUR_ADMIN_TOKEN_HERE
+
+### Get All Users (Admin only)
+GET http://localhost:5000/api/admin/users
+Authorization: Bearer YOUR_ADMIN_TOKEN_HERE
+
+### Get All Products (Admin only)
+GET http://localhost:5000/api/admin/products
+Authorization: Bearer YOUR_ADMIN_TOKEN_HERE
+
+### Get All Coupons (Admin only)
+GET http://localhost:5000/api/admin/coupons
+Authorization: Bearer YOUR_ADMIN_TOKEN_HERE
+
+### Get All Reviews (Admin only)
+GET http://localhost:5000/api/admin/reviews
+Authorization: Bearer YOUR_ADMIN_TOKEN_HERE

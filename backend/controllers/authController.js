@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const { sendWelcomeEmail } = require('../config/email');  // 🆕 LINE 1 - ADD THIS
 
 // Register
 const register = async (req, res) => {
@@ -20,8 +21,11 @@ const register = async (req, res) => {
       password: hashedPassword,
     });
 
+    // 🆕 LINE 2 - ADD THIS (Send Welcome Email)
+    await sendWelcomeEmail(user.email, user.name);
+
     const token = jwt.sign(
-      { id: user._id, isAdmin: user.isAdmin },
+      { id: user._id, role: user.role },
       process.env.JWT_SECRET,
       { expiresIn: "7d" }
     );
@@ -33,7 +37,7 @@ const register = async (req, res) => {
         id: user._id,
         name: user.name,
         email: user.email,
-        isAdmin: user.isAdmin,
+        role: user.role,
       },
     });
   } catch (error) {
@@ -57,7 +61,7 @@ const login = async (req, res) => {
     }
 
     const token = jwt.sign(
-      { id: user._id, isAdmin: user.isAdmin },
+      { id: user._id, role: user.role },
       process.env.JWT_SECRET,
       { expiresIn: "7d" }
     );
@@ -69,7 +73,7 @@ const login = async (req, res) => {
         id: user._id,
         name: user.name,
         email: user.email,
-        isAdmin: user.isAdmin,
+        role: user.role,
       },
     });
   } catch (error) {

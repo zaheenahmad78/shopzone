@@ -23,4 +23,7 @@ const adminOnly = (req, res, next) => {
   next();
 };
 
-module.exports = { protect, adminOnly };
+// 🆕 Add this line for compatibility
+const authMiddleware = protect;
+
+module.exports = { protect, adminOnly, authMiddleware };
